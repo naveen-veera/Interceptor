@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DataService } from './data.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angq17';
+
+  myarray : any;
+  header : any;
+
+  constructor(private dataService: DataService) { }
+
+  getData() {
+    this.dataService.getData().subscribe(
+      data => {
+        this.myarray = data;
+        this.header = "The Data Fetched are"
+        console.log(this.myarray);
+      }
+    );
+  }
 }
