@@ -8,17 +8,18 @@ import { DataService } from './data.service';
 })
 export class AppComponent {
 
-  myarray : any;
+  myarray : any = [];
   header : any;
 
   constructor(private dataService: DataService) { }
 
-  getData() {
+   getData() {
     this.dataService.getData().subscribe(
       data => {
         this.myarray = data;
-        this.header = "The Data Fetched are"
-        console.log(this.myarray);
+        this.header = "The Fetched Data"
+        console.log(data)
+        return data;
       }
     );
   }

@@ -2,15 +2,12 @@
 
   <div class="cont1">
     <h2 class="pb-3">Click the Button to Get Data</h2>
-    <button 
-      class="btn btn-primary"
-      (click) = "getData()"
-    >
+    <button id="getData" class="btn btn-primary" (click)="getData()">
       Get Data
     </button>
   </div>
 
-  <div class="data pt-5">
+  <div id="listUser" *ngIf='myarray' class="data pt-5">
     <p style="text-align: center;"> <b> {{header}} </b> </p>
     <ul *ngFor="let data of myarray">
       <li>
@@ -18,5 +15,4 @@
       </li>
     </ul>
   </div>
-  
 </div>
